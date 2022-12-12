@@ -10,7 +10,8 @@ const openai = new OpenAIApi(configuration);
 
 const app = express()
 
-const port = 8000;app.use(express.json())
+const port = process.env.PORT || 8000;
+app.use(express.json())
 app.use('/' , express.static(__dirname + '/public'))
 app.set('view engine' , 'ejs')
 app.use(urlencoded({extended : true}))
